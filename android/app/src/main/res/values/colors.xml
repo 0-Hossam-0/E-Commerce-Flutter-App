@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Add these Facebook-specific colors -->
+    <color name="com_facebook_blue">#1877F2</color>
+    <color name="com_facebook_button_background_color">#1877F2</color>
+    <color name="com_facebook_button_background_color_disabled">#E4E6EB</color>
+    <color name="com_facebook_button_background_color_focused">#1566C7</color>
+    <color name="com_facebook_button_background_color_focused_disabled">#E4E6EB</color>
+    <color name="com_facebook_button_border_color_focused">#1566C7</color>
+    <color name="com_facebook_button_text_color">#FFFFFF</color>
+</resources>

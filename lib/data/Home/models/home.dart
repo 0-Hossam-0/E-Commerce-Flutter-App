@@ -1,0 +1,45 @@
+class Home {
+  final int id;
+  final String title;
+  final String description;
+  final double price;
+  final List<String> images;
+  final double rate;
+  final double discount;
+  final int stock;
+  final List<Map<String, String>> reviews;
+  Home(
+      {required this.title,
+      required this.id,
+      required this.discount,
+      required this.price,
+      required this.images,
+      required this.stock,
+      required this.description,
+      required this.reviews,
+      required this.rate});
+  factory Home.fromJson(Map<String, dynamic> json) {
+    List<dynamic> rawReviews = json['reviews'] ?? [];
+    List<Map<String, String>> reviews =
+        rawReviews.map<Map<String, String>>((review) {
+      return {
+         'rating': review['rating'] is int ? review['rating'].toString() : review['rating']?.toString() ?? '',
+        'comment': review['comment']?.toString() ?? '',
+        'reviewerName': review["reviewerName"]?.toString() ?? '',
+        "date": review["date"]?.toString() ?? '',
+      };
+    }).toList();
+
+    return Home(
+      id: json['id'] as int? ?? 0,
+      title: json['title']?.toString() ?? '',
+      description: json['description']?.toString() ?? '',
+      price: (json['price'] as num?)?.toDouble() ?? 0.0,
+      images: (json['images'] as List<dynamic>?)?.cast<String>() ?? <String>[],
+      reviews: reviews,
+      stock: json['stock'] as int? ?? 0,
+      rate: (json['rating'] as num?)?.toDouble() ?? 0.0,
+      discount: (json['discountPercentage'] as num?)?.toDouble() ?? 0.0,
+    );
+  }
+}
